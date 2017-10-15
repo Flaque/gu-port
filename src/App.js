@@ -1,4 +1,5 @@
 import Head from "./components/Head.js";
+import Markdown from "./components/Markdown.js";
 
 class App extends React.Component {
   render() {
@@ -6,7 +7,7 @@ class App extends React.Component {
       <div>
         <Head />
 
-        <div> Hello I am some stuff so that's cool </div>
+        <Markdown />
       </div>
     );
   }
