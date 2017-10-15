@@ -4,19 +4,23 @@ import styled from "styled-components";
 
 const Icon = styled.div`
   padding: 5px;
-  line-height: 14px;
-  height: 14px;
   cursor: pointer;
   :hover {
     svg {
       stroke: ${props => props.theme.colors.primary};
     }
   }
+  display: inline-block;
 `;
 const TopBarWrapper = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: 25px;
+`;
+
+const Title = styled.h3`
+  width: 100%;
+  margin: 0;
 `;
 
 class TopBar extends React.Component {
@@ -27,6 +31,8 @@ class TopBar extends React.Component {
   render() {
     return (
       <TopBarWrapper>
+        <Title>The Portfolio</Title>
+
         <Icon>
           <UserSVG />
         </Icon>

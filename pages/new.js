@@ -1,8 +1,3 @@
-import Head from "../src/components/Head";
+import Submitter from "../src/components/Submiter";
 
-export default () => (
-  <div>
-    <Head />
-    You can have a new thing here
-  </div>
-);
+export default () => <Submitter />;

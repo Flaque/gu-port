@@ -30,11 +30,7 @@ const base = {
 // Replaces a regular ThemeProvider from styled-components
 // https://www.styled-components.com/docs/advanced#theming
 const Themed = ({ children }) => {
-  return (
-    <ThemeProvider theme={base}>
-      <div>{children}</div>
-    </ThemeProvider>
-  );
+  return <ThemeProvider theme={base}>{children}</ThemeProvider>;
 };
 
 export default Themed;

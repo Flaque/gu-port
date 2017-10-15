@@ -1,4 +1,4 @@
-import App from "../src/App.js";
+import Main from "../src/Main.js";
 import styled, { injectGlobal } from "styled-components";
 
 const Centered = styled.div`
@@ -12,6 +12,6 @@ const Centered = styled.div`
 
 export default () => (
   <Centered>
-    <App />
+    <Main />
   </Centered>
 );
