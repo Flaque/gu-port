@@ -6,6 +6,10 @@ class ArticleList extends React.Component {
   }
 
   render() {
+    if (!this.props.articles) {
+      return <div>We can't find any posts :(</div>;
+    }
+
     const articles = this.props.articles.map(({ src, id }) => [
       <Markdown src={src} key={`${id}-mark`} />,
       <hr key={`${id}-hr`} />

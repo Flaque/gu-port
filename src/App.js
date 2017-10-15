@@ -1,24 +1,42 @@
 import styled from "styled-components";
 import Head from "./components/Head.js";
 import ArticleList from "./components/ArticleList.js";
+import TopBar from "./components/TopBar.js";
+import api from "./api";
+import Themed from "./Theme";
 
-const articles = [
-  { src: "# Hello there \n I am article", id: "1" },
-  { src: "# Yuperino \n text goes here \n ## Subtitle \n mo textrios", id: "2" }
-];
+const AppWrapper = styled.div`width: 100%;`;
 
-const PaddedMain = styled.main`
-  padding: 50px;
-  width: 100%;
-`;
+const Main = styled.main`width: 100%;`;
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    api.getPage(1, 1).then(({ data }) => {
+      this.state.setState(prevState => {
+        prevState.articles.push({
+          src: data,
+          id: 1 //TODO DONT SET ALL THE IDS TO 1
+        });
+      });
+    });
+  }
+
   render() {
     return (
-      <PaddedMain>
-        <Head />
-        <ArticleList articles={articles} />
-      </PaddedMain>
+      <Themed>
+        <AppWrapper>
+          <Head />
+          <TopBar />
+          <Main>
+            <ArticleList articles={this.state.articles} />
+          </Main>
+        </AppWrapper>
+      </Themed>
     );
   }
 }
