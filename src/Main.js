@@ -32,6 +32,10 @@ class App extends React.Component {
           <Main>
             <ArticleList articles={this.state.articles} />
           </Main>
+
+          <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=7a32373e9098053826b5">
+            Login
+          </a>
         </AppWrapper>
       </Themed>
     );
