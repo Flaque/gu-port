@@ -1,8 +1,8 @@
 import Head from "next/head";
 
-export default () => (
+export default ({ title }) => (
   <Head>
-    <title>Portfolio</title>
+    <title>{title}</title>
     <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/milligram.css" />
   </Head>

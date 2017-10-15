@@ -6,7 +6,6 @@ import api from "./api";
 import Themed from "./Theme";
 
 const AppWrapper = styled.div`width: 100%;`;
-
 const Main = styled.main`width: 100%;`;
 
 class App extends React.Component {
@@ -16,7 +15,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    api.getPage(1, 1).then(({ data }) => {
+    api.getPage(0, 0).then(({ data }) => {
       this.state.setState(prevState => {
         prevState.articles.push({
           src: data,
@@ -30,7 +29,7 @@ class App extends React.Component {
     return (
       <Themed>
         <AppWrapper>
-          <Head />
+          <Head title="Portfolio" />
           <TopBar />
           <Main>
             <ArticleList articles={this.state.articles} />
