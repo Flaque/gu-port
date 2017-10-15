@@ -11,16 +11,14 @@ const Main = styled.main`width: 100%;`;
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { articles: [] };
   }
 
   componentDidMount() {
-    api.getPage(0, 0).then(({ data }) => {
-      this.state.setState(prevState => {
-        prevState.articles.push({
-          src: data,
-          id: 1 //TODO DONT SET ALL THE IDS TO 1
-        });
+    api.getPageList(3, 0).then(({ data }) => {
+      this.setState(prevState => {
+        prevState.articles = prevState.articles.concat(data.pages);
+        return prevState;
       });
     });
   }

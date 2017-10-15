@@ -1,6 +1,8 @@
 import UserSVG from "../../assets/user.svg";
 import UploadSVG from "../../assets/upload.svg";
 import styled from "styled-components";
+import Link from "next/link";
+import Title from "./Title";
 
 const Icon = styled.div`
   padding: 5px;
@@ -18,11 +20,6 @@ const TopBarWrapper = styled.div`
   margin-bottom: 25px;
 `;
 
-const Title = styled.h3`
-  width: 100%;
-  margin: 0;
-`;
-
 class TopBar extends React.Component {
   constructor(props) {
     super(props);
@@ -33,12 +30,17 @@ class TopBar extends React.Component {
       <TopBarWrapper>
         <Title>The Portfolio</Title>
 
+        {/* Profile */}
         <Icon>
           <UserSVG />
         </Icon>
-        <Icon>
-          <UploadSVG />
-        </Icon>
+
+        {/* Add new post */}
+        <Link href="/new" prefetch>
+          <Icon>
+            <UploadSVG />
+          </Icon>
+        </Link>
       </TopBarWrapper>
     );
   }

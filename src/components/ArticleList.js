@@ -1,4 +1,4 @@
-import Markdown from "./Markdown.js";
+import Article from "./Article";
 
 class ArticleList extends React.Component {
   constructor(props) {
@@ -10,10 +10,7 @@ class ArticleList extends React.Component {
       return <div>We can't find any posts :(</div>;
     }
 
-    const articles = this.props.articles.map(({ src, id }) => [
-      <Markdown src={src} key={`${id}-mark`} />,
-      <hr key={`${id}-hr`} />
-    ]);
+    const articles = this.props.articles.map(props => <Article {...props} />);
 
     return <div>{articles}</div>;
   }

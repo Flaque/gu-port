@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL, USER_ROUTE, PAGE_ROUTE } from "./constants";
+import { BASE_URL, USER_ROUTE, PAGE_ROUTE, PAGE_LIST_ROUTE } from "./constants";
 
 function getPage(userID, pageID) {
   return axios.get(
@@ -7,4 +7,9 @@ function getPage(userID, pageID) {
   );
 }
 
-export default { getPage };
+function getPageList(count, offset) {
+  console.log(BASE_URL + PAGE_LIST_ROUTE + `/${count}` + `/${offset}`);
+  return axios.get(BASE_URL + PAGE_LIST_ROUTE + `/${count}` + `/${offset}`);
+}
+
+export default { getPage, getPageList };
