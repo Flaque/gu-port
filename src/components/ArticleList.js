@@ -1,10 +1,6 @@
 import Article from "./Article";
 
 class ArticleList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     if (!this.props.articles) {
       return <div>We can't find any posts :(</div>;

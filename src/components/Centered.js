@@ -7,6 +7,7 @@ const Centered = styled.div`
   max-width: 700px;
   margin: auto;
   margin-top: 50px;
+  flex-direction: column;
 `;
 
 export default Centered;
