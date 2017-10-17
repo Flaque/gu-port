@@ -8,7 +8,6 @@ function getPage(userID, pageID) {
 }
 
 function getPageList(count, offset) {
-  console.log(BASE_URL + PAGE_LIST_ROUTE + `/${count}` + `/${offset}`);
   return axios.get(BASE_URL + PAGE_LIST_ROUTE + `/${count}` + `/${offset}`);
 }
 

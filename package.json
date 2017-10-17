@@ -19,9 +19,13 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "./node_modules/.bin/eslint src pages"
   },
   "devDependencies": {
-    "babel-plugin-inline-react-svg": "^0.4.0"
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-inline-react-svg": "^0.4.0",
+    "eslint": "^4.9.0",
+    "eslint-plugin-react": "^7.4.0"
   }
 }
