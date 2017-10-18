@@ -3,6 +3,7 @@ import Themed from "../Theme";
 import styled from "styled-components";
 import Title from "./Title";
 import Link from "next/link";
+import readBlob from "read-blob";
 
 const AppWrapper = styled.div`width: 100%;`;
 const TitleWithMargin = Title.extend`margin-bottom: 25px;`;
@@ -11,11 +12,17 @@ class SubmitForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      disabled: false,
-      reason: ""
+      disabled: true,
+      reason: "",
+      uploadedText: ""
     };
 
     this.onUserUpload = this.onUserUpload.bind(this);
+    this.onUserSubmit = this.onUserSubmit.bind(this);
+  }
+
+  onUserSubmit() {
+    console.log(this.state.uploadedText);
   }
 
   onUserUpload(event) {
@@ -31,8 +38,10 @@ class SubmitForm extends React.Component {
       return;
     }
 
-    // Otherwise, make sure we're not disabled
-    this.setState({ disabled: false });
+    // Read the file and send it off to the API
+    readBlob(file, "text").then(text => {
+      this.setState({ uploadedText: text, disabled: false });
+    });
   }
 
   render() {
@@ -64,8 +73,8 @@ export default () => (
       <Head title="Submit" />
       <TitleWithMargin> Add a new post </TitleWithMargin>
       <p>
-        You can submit a Markdown file (like on a Github README) as a post and
-        we'll make it pretty! Anything you can do on Github, you can do here.
+        {`You can submit a Markdown file (like on a Github README) as a post and
+        we'll make it pretty! Anything you can do on Github, you can do here.`}
       </p>
 
       <SubmitForm />

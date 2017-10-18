@@ -14,6 +14,7 @@
     "react-dom": "^16.0.0",
     "react-markdown": "^2.5.0",
     "react-modal": "^3.0.3",
+    "read-blob": "^1.1.0",
     "styled-components": "^2.2.1",
     "url-parse": "^1.1.9"
   },
