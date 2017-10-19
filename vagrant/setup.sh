@@ -50,18 +50,19 @@ echo '-----> Installing go dependencies'
 
 echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
 
-
-
-
 echo '-----> Initialising MySQL database'
 # Re-enable blank password root logins, which are disabled by default in MySQL 5.7.
 sudo mysql -e 'ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY ""';
 # The default `root@localhost` grant only allows loopback interface connections.
+mysql -u root -e 'DROP DATABASE IF EXISTS gu_port_testing'
+mysql -u root -e 'DROP DATABASE IF EXISTS gu_port_dev'
 mysql -u root -e 'CREATE DATABASE IF NOT EXISTS gu_port_testing'
 mysql -u root -e 'CREATE DATABASE IF NOT EXISTS gu_port_dev'
 
 mysql -u root gu_port_testing < $SRC_DIR/vagrant/gu-port-testing.sql
 mysql -u root gu_port_dev < $SRC_DIR/vagrant/gu-port-dev.sql
 
+echo '-----> Installing npm dependencies'
+cd ./frontend && yarn install
 
 echo '-----> Setup complete!'
