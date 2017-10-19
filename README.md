@@ -51,7 +51,7 @@ Now start the webservice.
 ```bash
 yarn run dev
 ```
-To access the frontend go to `localhost:3000'.
+To access the frontend go to `localhost:3000`.
 
 If you want to just run using the latest production API, you can run with the production NODE_ENV environment variable set with: 
 
